@@ -1,0 +1,124 @@
+* {
+    user-select: none;
+    box-sizing: border-box;
+}
+
+.CardPlaceholder {
+    height: 210px;
+    width:  160px;
+    border-style: solid;
+    border-color: rgb(15, 70, 1);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.CardFace{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    border-style: double;
+    border-width: 10px;
+    border-radius: 5px;
+    border-color: black;
+    height: 210px;
+    width: 160px;
+    color: purple;
+}
+
+.BlueControl {
+    background-color: blue;
+}
+
+.RedControl {
+    background-color: red;
+}
+
+.CardPicture{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    height: 75%;
+    width: 75%;
+    background-color: black;
+}
+
+.ValuesContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    font-size: larger;
+    font-weight: bolder;
+    color: black;
+
+}
+
+.TopAndBottom {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.LeftAndRight {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.Top {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:30%;
+    height: 15%;
+    background-color: gold;
+    clip-path: polygon(100% 100%, 50% 75%, 0 100%, 0 25%, 50% 0, 100% 25%);
+}
+
+.Bot {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:30%;
+    height: 15%;
+    background-color: gold;
+    clip-path: polygon(100% 75%, 50% 100%, 0 74%, 0 0, 50% 25%, 100% 0);
+}
+
+.Left {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:20%;
+    height: 20%;
+    background-color: gold;
+    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+}
+
+.Right {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width:20%;
+    height: 20%;
+    background-color: gold;
+    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
+
+.CardPlaceholder > * {
+    display: none
+}
