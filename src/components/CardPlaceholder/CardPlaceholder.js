@@ -12,25 +12,37 @@ class CardPlaceholder extends Component {
             handPositionId: null,
             cardOwner: null,
             cardId: null,
-            cardValues: [1, 1, 1, 1]
+            cardValues: [1, 1, 1, 1],
+            animated: false,
         };
     }
 
-    componentDidUpdate(pevProps, prevState) {
+    componentDidUpdate(prevProps, prevState) {
         if ((prevState.cardOwner !== this.state.cardOwner) && !this.props.onBoard) {
-            // console.log(this.state.cardOwner, this.state.handPositionId, this.props.placeholderId, this.state.cardId);
             this.props.cardPlaced(this.state.cardOwner, this.state.handPositionId, this.props.placeholderId, this.state.cardId);
-            this.handleCardPlacment();
+            this.handleCardPlacment(this.state.cardOwner);
+        }
+
+        if ((prevProps.onBoard !== this.props.onBoard) && (prevProps.onBoard !== false)) {
+            this.handleCardPlacment(this.props.onBoard, false);
         }
     }
 
-    handleCardPlacment = () => {
-        let onwerClasses = (this.state.cardOwner === "Blue") ? classes.BlueControl : classes.RedControl;
-        this.setState({ placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses].join(' ') })
+    handleCardPlacment = (owner, changedOwner) => {
+        let onwerClasses = (owner === "Blue") ? classes.BlueControl : classes.RedControl;
+        let animationClass = (changedOwner === false) ? classes.Animate : classes.Nesto;
+        this.setState({
+            placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses, animationClass].join(' ')
+        },
+            () => {
+                setTimeout(() => {
+                    this.setState({ placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses].join(' ') })
+                }, 500);
+            })
     }
 
     drop = (e) => {
- 
+
         if (!this.props.onBoard) {
             e.preventDefault();
             const recievedData = JSON.parse(e.dataTransfer.getData('sendCardInfo'));

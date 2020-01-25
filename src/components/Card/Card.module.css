@@ -66,10 +66,29 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    position: relative;
     height: 75%;
-    width: 75%;
+    width: 90%;
     background-color: black;
+}
+
+img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.CardName {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 80%;
+    white-space: nowrap;
+    font-size: small;
+    font-weight: 900;
 }
 
 .ValuesContainer {

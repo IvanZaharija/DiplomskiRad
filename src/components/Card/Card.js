@@ -4,6 +4,7 @@ import classes from './Card.module.css';
 import Deck from '../CardCollection.json';
 
 
+
 class Card extends Component {
     constructor(props) {
         super(props);
@@ -56,8 +57,8 @@ class Card extends Component {
                 onDragOver={(e) => this.dragOver(e)}
             >
                 <div className={classes.CardPicture}>
-                    Picture
-            </div>
+                <div className={classes.CardName}> { Deck[this.props.cardID].name} </div>
+                </div>
                 <div className={classes.ValuesContainer}>
                     <div className={classes.TopAndBottom}>
                         <div className={classes.Top}> {this.state.cardValues[0]} </div>
