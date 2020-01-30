@@ -47,6 +47,8 @@
     color: purple;
 }
 
+
+
 .BlueControl {
     background-color: blue;
 }
@@ -59,9 +61,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
-
+    position: relative;
     height: 75%;
-    width: 75%;
+    width: 90%;
     background-color: black;
 }
 

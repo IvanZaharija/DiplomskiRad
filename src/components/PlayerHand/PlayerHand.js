@@ -7,6 +7,10 @@ import Card from '../Card/Card';
 
 class PlayerHand extends Component {
 
+    componentDidMount () {
+        console.log(this.props);
+    }
+
     triggerHandCardRemove = (cardNumber) => {
 
         if (this.refs.hasOwnProperty(cardNumber)) {

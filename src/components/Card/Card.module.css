@@ -18,6 +18,7 @@
     color: purple;
 }
 
+
 .InHand {
     position: absolute;
 }
@@ -86,8 +87,9 @@ img {
     justify-content: center;
     top: 0;
     width: 80%;
-    white-space: nowrap;
-    font-size: small;
+    white-space: pre-wrap;
+    text-align: center;
+    font-size: medium;
     font-weight: 900;
 }
 
@@ -161,4 +163,24 @@ img {
     height: 20%;
     background-color: gold;
     clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+}
+
+.CardBack{
+    display: flex;
+
+    border-style: solid;
+    border-width: 10px;
+    border-radius: 5px;
+    background-image: url(./logo.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: white;
+    background-size: contain;
+    border-color: black;
+    height: 210px;
+    width: 160px;
+}
+
+.CardBack >* {
+    display: none;
 }

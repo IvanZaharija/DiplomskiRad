@@ -11,7 +11,7 @@ class CardPlaceholder extends Component {
             owned: null,
             handPositionId: null,
             cardOwner: null,
-            cardId: null,
+            cardId: 1,
             cardValues: [1, 1, 1, 1],
             animated: false,
         };
@@ -66,8 +66,8 @@ class CardPlaceholder extends Component {
                 onDrop={(e) => this.drop(e)}
             >
                 <div className={classes.CardPicture}>
-                    Picture
-           </div>
+                    <img src={require(`../../images/animals/${this.state.cardId}.jpg`)} />
+                </div>
                 <div className={classes.ValuesContainer}>
                     <div className={classes.TopAndBottom}>
                         <div className={classes.Top}> {this.state.cardValues[0]} </div>

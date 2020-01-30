@@ -57,7 +57,8 @@ class Card extends Component {
                 onDragOver={(e) => this.dragOver(e)}
             >
                 <div className={classes.CardPicture}>
-                <div className={classes.CardName}> { Deck[this.props.cardID].name} </div>
+                    <img src={require(`../../images/animals/${this.props.cardID}.jpg`)} />
+                    <div className={classes.CardName}> {Deck[this.props.cardID].name} </div>
                 </div>
                 <div className={classes.ValuesContainer}>
                     <div className={classes.TopAndBottom}>
