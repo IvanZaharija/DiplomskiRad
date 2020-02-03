@@ -10,6 +10,7 @@ class Card extends Component {
         super(props);
         this.state = {
             cardCssClasses: null,
+            cardHiddenClasses: [classes.CardBack, classes.InHand].join(' '),
             cardValues: [1, 2, 3, 4],
             target: null
         };
@@ -49,8 +50,9 @@ class Card extends Component {
     }
 
     render() {
+
         return (
-            <div className={this.state.cardCssClasses}
+            <div className={ (this.props.draggable) ? this.state.cardCssClasses : this.state.cardHiddenClasses}
                 id={this.props.id}
                 draggable={this.props.draggable}
                 onDragStart={(e) => this.onDragStart(e)}

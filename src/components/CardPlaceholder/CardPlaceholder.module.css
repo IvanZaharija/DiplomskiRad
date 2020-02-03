@@ -40,7 +40,7 @@
 
     border-style: double;
     border-width: 10px;
-    border-radius: 5px;
+    border-radius: 2px;
     border-color: black;
     height: 210px;
     width: 160px;
@@ -50,11 +50,11 @@
 
 
 .BlueControl {
-    background-color: blue;
+    background-color: royalblue;
 }
 
 .RedControl {
-    background-color: red;
+    background-color: crimson;
 }
 
 .CardPicture{
@@ -64,7 +64,17 @@
     position: relative;
     height: 75%;
     width: 90%;
-    background-color: black;
+}
+
+
+img {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    border-style: groove;
+    border-color: black;
 }
 
 .ValuesContainer {

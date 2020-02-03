@@ -11,12 +11,15 @@ class GameField extends Component {
         this.state = {
             playerTurn: "Blue",
             cardsRed: [4, 6, 24, 13, 15],
-            cardsBlue: [5, 15, 22, 30, 19]
+            cardsBlue: [5, 15, 22, 30, 19],
+            blueScore: 0,
+            redScore: 0,
+            show : false
         };
     }
 
-    componentDidUpdate() {
-        console.log(this.state.playerTurn);
+    getScoreHandler = (scoreBlue, scoreRed) => {
+        this.setState({ blueScore: scoreBlue, redScore: scoreRed, show: true });
     }
 
     handleCardPlaced = (cardOwner, handPositionId, placeholderId, cardId) => {
@@ -38,8 +41,19 @@ class GameField extends Component {
     render() {
         return (
             <div className={classes.GameField}>
+                <div className={classes.ResultScreen}
+                    style={{transform: this.state.show ? 'translateY(0)' : 'translateY(-100vh)'}}
+                >
+                    <div className={classes.ResultTitle}>  The Winner is  </div>
+                    <div className={classes.Winner}> {this.state.playerTurn} </div>
+                    <div className={classes.ResultValues}>
+                        <div className={[classes.Score, classes.Blue].join(' ') }> {this.state.blueScore} </div>
+                        <div className={classes.ScoreDash}> - </div>
+                        <div className={[classes.Score, classes.Red].join(' ') }> {this.state.redScore} </div>
+                    </div>
+                </div>
                 <PlayerHand ref="Blue" owner={"Blue"} cardIDs={this.state.cardsBlue} playerTurn={(this.state.playerTurn === "Blue") ? true : false} />
-                <GameBoard ref="Board" cardPlaced={this.handleCardPlaced} />
+                <GameBoard ref="Board" cardPlaced={this.handleCardPlaced} gameResult={this.getScoreHandler} />
                 <PlayerHand ref="Red" owner={"Red"} cardIDs={this.state.cardsRed} playerTurn={(this.state.playerTurn === "Red") ? true : false} />
             </div>
         )

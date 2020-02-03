@@ -10,6 +10,9 @@ class GameBoard extends Component {
         super(props);
         this.state = {
             triggeredPlaceholder: null,
+            scoreRed: 5,
+            scoreBlue: 5,
+            cardsPlaced: 0,
             boardState: {
                 "1": {
                     "owner": false,
@@ -48,52 +51,81 @@ class GameBoard extends Component {
                     "cardValues": [0, 0, 0, 0]
                 },
             }
-
         };
     }
 
-    componentDidUpdate() {
-        this.checkAdjacentPlaceholder(this.state.triggeredPlaceholder);
+    componentDidUpdate(prevProps, prevState) {
+        this.checkAdjacentPlaceholder(this.state.triggeredPlaceholder, this.props.gameResult);
+
+        
+        if (this.state.cardsPlaced === 10) {
+            this.setState({ cardsPlaced: this.state.cardsPlaced + 1})
+            this.props.gameResult( this.state.scoreBlue, this.state.scoreRed)
+        }
+    }
+
+    updateScoreHandler(owner, scoreValue) {
+        let blueScoreTemp = this.state.scoreBlue;
+        let redScoreTemp = this.state.scoreRed;
+        if (owner === "Blue") {
+            this.setState({ scoreBlue: blueScoreTemp + scoreValue, scoreRed: redScoreTemp - scoreValue })
+        } else if (owner === "Red") {
+            this.setState({ scoreBlue: blueScoreTemp - scoreValue, scoreRed: redScoreTemp + scoreValue })
+        }
     }
 
     handleGameLogic(placeholderId, cardOwner, cardId) {
         let tempState = { ...this.state.boardState };
         tempState[placeholderId].owner = cardOwner;
         tempState[placeholderId].cardValues = Deck[cardId].values;
-        this.setState({ boardState: tempState, triggeredPlaceholder: placeholderId })
+
+        this.setState({ boardState: tempState, triggeredPlaceholder: placeholderId, cardsPlaced: this.state.cardsPlaced + 1});
     }
 
     checkAdjacentPlaceholder(triggered) {
-        //TODO PREABACIT BOARD U NEKI ODVOJENI JSON FILE
+        let scoreUpdate = 0;
+        const triggeredOwner = this.state.boardState[triggered].owner;
 
         Board[triggered].nextTo.forEach(adj => {
             if ((this.state.boardState[adj].owner) && (this.state.boardState[triggered].owner !== this.state.boardState[adj].owner)) {
                 const triggeredPos = Board[triggered][adj][0];
                 const adjacentPos = Board[triggered][adj][1];
-                const triggeredOwner = this.state.boardState[triggered].owner;
+                // const triggeredOwner = this.state.boardState[triggered].owner;
 
                 const triggeredValue = this.state.boardState[triggered].cardValues[triggeredPos];
                 const adjacentValue = this.state.boardState[adj].cardValues[adjacentPos];
                 if (triggeredValue > adjacentValue) {
-                    this.changeOwnerHandler( triggeredOwner, adj)
-                }
-                else {
-                    console.log("Manji sam");
+                    this.changeOwnerHandler(triggeredOwner, adj);
+                    scoreUpdate++;                   
                 }
             }
         });
+
+        if (scoreUpdate > 0) {
+            this.updateScoreHandler(triggeredOwner, scoreUpdate);
+        }
+
+        if (this.state.cardsPlaced === 9){
+            this.setState({ cardsPlaced: 10})
+        }
     }
 
-    changeOwnerHandler = ( newOwner, placeholderId) => {
+    changeOwnerHandler = (newOwner, placeholderId) => {
         let tempState = { ...this.state.boardState };
         tempState[placeholderId].owner = newOwner;
-        this.setState({ boardState: tempState});
+        this.setState({ boardState: tempState });
     }
 
     render() {
 
         return (
             <div className={classes.GameBoard}>
+                <div className={classes.ScoreBoard}
+                     style={{display: (this.state.cardsPlaced === 11) ? 'none' : 'flex'}}
+                     >
+                    <div className={[classes.Score, classes.ScoreBlue].join(' ')}>{this.state.scoreBlue}</div>
+                    <div className={[classes.Score, classes.ScoreRed].join(' ')}>{this.state.scoreRed}</div>
+                </div>
                 <div className={classes.Row}>
                     <PlaceHolder placeholderId={1} onBoard={this.state.boardState[1].owner} cardPlaced={this.props.cardPlaced} />
                     <PlaceHolder placeholderId={2} onBoard={this.state.boardState[2].owner} cardPlaced={this.props.cardPlaced} />
