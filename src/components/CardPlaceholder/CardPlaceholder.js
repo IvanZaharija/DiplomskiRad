@@ -67,6 +67,7 @@ class CardPlaceholder extends Component {
             >
                 <div className={classes.CardPicture}>
                     <img src={require(`../../images/animals/${this.state.cardId}.jpg`)} />
+                    <div className={classes.CardName}> {Deck[this.state.cardId].name} </div>
                 </div>
                 <div className={classes.ValuesContainer}>
                     <div className={classes.TopAndBottom}>

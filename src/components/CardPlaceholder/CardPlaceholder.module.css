@@ -7,6 +7,7 @@
     height: 210px;
     width:  160px;
     border-style: solid;
+    border-width: 1px;
     border-color:whitesmoke;
     position: relative;
     display: flex;
@@ -15,9 +16,7 @@
 }
 
 .Animate{
-
     animation: card-flip .4s linear;
-
 }
 
 @keyframes card-flip{
@@ -39,8 +38,8 @@
     position: relative;
 
     border-style: double;
-    border-width: 10px;
-    border-radius: 2px;
+    border-width: 5px;
+    border-radius: 5px;
     border-color: black;
     height: 210px;
     width: 160px;
@@ -75,6 +74,26 @@ img {
     width: 100%;
     border-style: groove;
     border-color: black;
+}
+
+.CardName {
+    display: none;
+}
+
+.CardFace:hover .CardName {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    top: 0;
+    width: 100%;
+    white-space: pre-wrap;
+    text-align: center;
+    font-size: medium;
+    font-weight: 900;
+    color: white;
+    background-color:rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 1px gray;
+
 }
 
 .ValuesContainer {

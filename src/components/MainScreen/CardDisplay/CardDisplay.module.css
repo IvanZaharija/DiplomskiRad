@@ -3,6 +3,12 @@
     box-sizing: border-box;
 }
 
+.CardDisplay{
+    display: flex;
+    height: 200px;
+    width: 200px;
+}
+
 .CardFace{
     display: flex;
     align-items: center;
@@ -18,59 +24,13 @@
     color: purple;
 }
 
-
-.InHand {
-    position: absolute;
-    box-shadow: 10px 10px rgba(0, 0, 0, 0.5);
-}
-
-.InHand:hover {
-    z-index: 5;
-}
-
-.InLeftHand:hover {
-    transform: translate(5vh, -2vw);
-}
-
-.InRightHand:hover {
-    transform: translate(-5vh, -2vw);
-}
-
-.InHand:nth-child(1){
-    top: 5Vh;
-}
-.InHand:nth-child(2){
-    /* z-index: 4; */
-    top: 20vh;
-}
-.InHand:nth-child(3){
-    /* z-index: 3; */
-    top: 35vh;
-}
-.InHand:nth-child(4){
-    /* z-index: 2; */
-    top: 50vh;
-}
-.InHand:nth-child(5){
-    /* z-index: 1; */
-    top: 65vh
-}
-
-.BlueControl {
-    background-color: royalblue;
-}
-
-.RedControl {
-    background-color: crimson;
-}
-
 .CardPicture{
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 85%;
-    width: 85%;
+    height: 75%;
+    width: 90%;
     background-color: black;
 }
 
@@ -80,29 +40,18 @@ img {
     justify-content: center;
     height: 100%;
     width: 100%;
-    border-style: groove;
-    border-color: black;
 }
 
 .CardName {
-    display: none;
-}
-
-.CardFace:hover .CardName {
     position: absolute;
     display: flex;
     justify-content: center;
     top: 0;
-    margin-top: 10px;
-    width: 100%;
+    width: 80%;
     white-space: pre-wrap;
     text-align: center;
     font-size: medium;
     font-weight: 900;
-    color: white;
-    background-color:rgba(0, 0, 0, 0.6);
-    text-shadow: 2px 1px gray;
-
 }
 
 .ValuesContainer {
@@ -141,10 +90,10 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
-    height: 14%;
+    width:30%;
+    height: 15%;
     background-color: gold;
-    clip-path: polygon(100% 100%,  0 100%, 0 25%, 50% 0, 100% 25%);
+    clip-path: polygon(100% 100%, 50% 75%, 0 100%, 0 25%, 50% 0, 100% 25%);
 }
 
 .Bot {
@@ -175,24 +124,4 @@ img {
     height: 20%;
     background-color: gold;
     clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
-}
-
-.CardBack{
-    display: flex;
-
-    border-style: solid;
-    border-width: 6px;
-    border-radius: 5px;
-    background-image: url(./logo.png);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-color: lightgray;
-    background-size: 80%;
-    border-color: black;
-    height: 210px;
-    width: 160px;
-}
-
-.CardBack >* {
-    display: none;
 }

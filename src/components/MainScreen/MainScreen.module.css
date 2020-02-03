@@ -1,0 +1,14 @@
+.DisplayCase{
+    display: flex;
+    flex-direction: column;
+}
+
+.Row {
+    display: flex;
+    flex-direction: row;
+}
+
+.CardCase{
+    display: flex;
+    flex-direction: column;
+}
