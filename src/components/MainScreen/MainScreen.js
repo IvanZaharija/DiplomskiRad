@@ -11,7 +11,7 @@ class GameField extends Component {
         this.state = {
             cards: Deck,
             deckSize: null,
-            show : false,
+            show: false,
             blueReady: false,
             redReady: false
         };
@@ -26,23 +26,36 @@ class GameField extends Component {
 
     checkBlueSelection = (full) => {
         if (full && !this.state.blueReady) {
-            this.setState({ blueReady: true})
+            this.setState({ blueReady: true })
         }
     }
 
     checkRedSelection = (full) => {
         if (full && !this.state.redReady) {
-            this.setState({ redReady: true})
+            this.setState({ redReady: true })
         }
+    }
+
+    sendAllCardIds = () => {
+        console.log("Ovjde idu idevi");
+        this.refs.SelectedBlue.fetchSelectedIds();
+        this.refs.SelectedRed.fetchSelectedIds();
+    }
+
+    returnBlueCardIds = (Ids) => {
+        console.log(Ids);
+    }
+    returnRedCardIds = (Ids) => {
+        console.log(Ids);
     }
 
     generateCard() {
 
         let row = [];
-        for (let i = 1; i <= this.state.deckSize/4 ; i++) {
+        for (let i = 1; i <= this.state.deckSize / 4; i++) {
             let column = [];
             for (let j = 0; j < 4; j++) {
-                let pomak = 4*i -3 + j;
+                let pomak = 4 * i - 3 + j;
                 if (pomak > this.state.deckSize) break;
                 column.push(
                     <td key={pomak} className={classes.CardCase} >
@@ -62,11 +75,14 @@ class GameField extends Component {
                 <div className={classes.Selection}>
                     <div className={classes.Instructions}> Instruction</div>
                     <div className={classes.PlayerCards}>
-                        <SelectedCards owner={"Blue"} cardsFull={this.checkBlueSelection}  />
-                        <SelectedCards owner={"Red"}  cardsFull={this.checkRedSelection} /> 
+                        <SelectedCards ref="SelectedBlue" owner={"Blue"} cardsFull={this.checkBlueSelection} getIds={this.returnBlueCardIds} />
+                        <SelectedCards ref="SelectedRed" owner={"Red"} cardsFull={this.checkRedSelection} getIds={this.returnRedCardIds} />
                     </div>
-                    <div className={classes.ButtonContainer}> 
-                        <button style={{ backgroundColor: (this.state.blueReady && this.state.redReady) ? 'green' : 'red'}}> Play!</button>
+                    <div className={classes.ButtonContainer}>
+                        <button style={{ backgroundColor: (this.state.blueReady && this.state.redReady) ? 'green' : 'red' }}
+                                onClick={() => this.sendAllCardIds()}>
+                            Play!
+                        </button>
                     </div>
                 </div>
                 <table className={classes.CardCollection}>
@@ -76,7 +92,7 @@ class GameField extends Component {
                 </table>
             </div>
 
-            
+
         )
     }
 }

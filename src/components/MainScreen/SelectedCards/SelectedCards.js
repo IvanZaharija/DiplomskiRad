@@ -17,6 +17,10 @@ class SelectedCards extends Component {
         }
     }
 
+    fetchSelectedIds () {
+        this.props.getIds(this.state.selectedCards);
+    }
+
     cardSelectedHanlder = (cardId, placeholderId) => {
         let tempState = [...this.state.selectedCards];
 
