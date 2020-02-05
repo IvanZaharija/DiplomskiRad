@@ -1,0 +1,5 @@
+.SelectedCards {
+    display: flex;
+    flex-direction: row;
+    margin: 2vh;
+}

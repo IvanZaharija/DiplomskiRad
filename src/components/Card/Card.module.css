@@ -15,7 +15,6 @@
     border-color: black;
     height: 210px;
     width: 160px;
-    color: purple;
 }
 
 
@@ -71,7 +70,6 @@
     position: relative;
     height: 85%;
     width: 85%;
-    background-color: black;
 }
 
 img {
@@ -114,7 +112,6 @@ img {
     font-size: larger;
     font-weight: bolder;
     color: black;
-
 }
 
 .TopAndBottom {
@@ -141,40 +138,45 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 25%;
-    height: 14%;
-    background-color: gold;
-    clip-path: polygon(100% 100%,  0 100%, 0 25%, 50% 0, 100% 25%);
+    width: 35%;
+    height: 12%;
+    background-color: gainsboro;
+    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 100%, 0% 100%);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .Bot {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:30%;
-    height: 15%;
-    background-color: gold;
-    clip-path: polygon(100% 75%, 50% 100%, 0 74%, 0 0, 50% 25%, 100% 0);
+    width: 35%;
+    height: 12%;
+    padding: 2px;
+    background-color: gainsboro;
+    clip-path: polygon(0 75%, 50% 100%, 100% 75%, 100% 0, 0 0);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .Left {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:20%;
-    height: 20%;
-    background-color: gold;
-    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    width:15%;
+    height: 25%;
+    background-color: gainsboro;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .Right {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:20%;
-    height: 20%;
-    background-color: gold;
-    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    width:15%;
+    height: 25%;
+    background-color: gainsboro;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .CardBack{

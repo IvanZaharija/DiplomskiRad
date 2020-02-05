@@ -3,11 +3,11 @@
     box-sizing: border-box;
 }
 
-.CardDisplay{
+/* .CardDisplay{
     display: flex;
     height: 200px;
     width: 200px;
-}
+} */
 
 .CardFace{
     display: flex;
@@ -21,7 +21,6 @@
     border-color: black;
     height: 210px;
     width: 160px;
-    color: purple;
 }
 
 .CardPicture{
@@ -29,10 +28,10 @@
     align-items: center;
     justify-content: center;
     position: relative;
-    height: 75%;
-    width: 90%;
-    background-color: black;
+    height: 85%;
+    width: 85%;
 }
+
 
 img {
     display: flex;
@@ -40,9 +39,11 @@ img {
     justify-content: center;
     height: 100%;
     width: 100%;
+    border-style: groove;
+    border-color: black;
 }
 
-.CardName {
+/* .CardName {
     position: absolute;
     display: flex;
     justify-content: center;
@@ -52,7 +53,7 @@ img {
     text-align: center;
     font-size: medium;
     font-weight: 900;
-}
+} */
 
 .ValuesContainer {
     position: absolute;
@@ -90,38 +91,75 @@ img {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:30%;
-    height: 15%;
-    background-color: gold;
-    clip-path: polygon(100% 100%, 50% 75%, 0 100%, 0 25%, 50% 0, 100% 25%);
+    width: 35%;
+    height: 12%;
+    background-color: gainsboro;
+    clip-path: polygon(0 25%, 50% 0, 100% 25%, 100% 100%, 0% 100%);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .Bot {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:30%;
-    height: 15%;
-    background-color: gold;
-    clip-path: polygon(100% 75%, 50% 100%, 0 74%, 0 0, 50% 25%, 100% 0);
+    width: 35%;
+    height: 12%;
+    padding: 2px;
+    background-color: gainsboro;
+    clip-path: polygon(0 75%, 50% 100%, 100% 75%, 100% 0, 0 0);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .Left {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:20%;
-    height: 20%;
-    background-color: gold;
-    clip-path: polygon(100% 0%, 75% 50%, 100% 100%, 25% 100%, 0% 50%, 25% 0%);
+    width:15%;
+    height: 25%;
+    background-color: gainsboro;
+    clip-path: polygon(25% 0%, 100% 0%, 100% 100%, 25% 100%, 0% 50%);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
 }
 
 .Right {
     display: flex;
     align-items: center;
     justify-content: center;
-    width:20%;
-    height: 20%;
-    background-color: gold;
-    clip-path: polygon(75% 0%, 100% 50%, 75% 100%, 0% 100%, 25% 50%, 0% 0%);
+    width:15%;
+    height: 25%;
+    background-color: gainsboro;
+    clip-path: polygon(0% 0%, 75% 0%, 100% 50%, 75% 100%, 0% 100%);
+    box-shadow: 1px 1px rgba(0, 0, 0, 1);
+}
+
+.Apes {
+    background-color: #04B002;
+}
+
+.BaleenWhales {
+    background-color: #2E66C5;
+}
+
+.Bears {
+    background-color: #A68665;
+}
+
+.BigCats {
+    background-color: #B90808;
+}
+
+.Even-toedUngulates {
+    background-color: #797B15;
+}
+
+.MarsupialsAndMonotremes {
+    background-color: #FCCB6D;
+}
+
+.Odd-toedUngulates {
+    background-color: #BB4B7F;
+}
+
+.ToothedWhales {
+    background-color: #97CEF8;
 }

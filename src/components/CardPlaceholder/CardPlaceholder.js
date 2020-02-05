@@ -42,7 +42,6 @@ class CardPlaceholder extends Component {
     }
 
     drop = (e) => {
-
         if (!this.props.onBoard) {
             e.preventDefault();
             const recievedData = JSON.parse(e.dataTransfer.getData('sendCardInfo'));

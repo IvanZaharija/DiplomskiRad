@@ -169,28 +169,28 @@
     },
     "25": {
       "id": "25",
-      "class" : "Bear",
+      "class" : "Bears",
       "name": "Brown Bear",
       "values": [5, 3, 5, 4],
       "picture": "../../../images/animals/2.jpg"
     },
     "26": {
       "id": "26",
-      "class" : "Bear",
+      "class" : "Bears",
       "name": "Polar Bear",
       "values": [6, 4, 5, 4],
       "picture": "../../../images/animals/2.jpg"
     },
     "27": {
       "id": "27",
-      "class" : "Bear",
+      "class" : "Bears",
       "name": "Sloth Bear",
       "values": [2, 2, 4, 4],
       "picture": "../../../images/animals/2.jpg"
     },
     "28": {
       "id": "28",
-      "class" : "Bear",
+      "class" : "Bears",
       "name": "American black bear",
       "values": [6, 2, 4, 3],
       "picture": "../../../images/animals/2.jpg"

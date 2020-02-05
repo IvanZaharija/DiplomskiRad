@@ -1,6 +1,58 @@
-.DisplayCase{
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.MainScreen {
+    display: flex;
+    flex-direction: row;
+}
+
+.Selection {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    height: 100vh;
+    flex-basis: 55%;
+}
+
+.Selection > * {
+    flex-direction: column;
+    justify-content: center; 
+}
+
+.Instruction {
+    display: flex;
+    flex-basis: 25%;
+}
+
+.PlayerCards {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 70%;
+}
+
+.ButtonContainer {
+    flex-basis: 5%;
+}
+
+.CardCollection {
+    display: flex;
+    height: 100vh;
+    flex-basis: 45%;
+    align-items: flex-start;
+    justify-content: center;
+    overflow-y: auto;
+    background-color: gray ;
+    background-image: url('../../images/backgrounds/dark_leather.png');
+    background-repeat: repeat;
+}
+
+.DisplayCase{
+    flex-direction: column;
+    height: auto;
 }
 
 .Row {
@@ -11,4 +63,11 @@
 .CardCase{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 1vh 0px;
+}
+
+.CardName {
+    color: blanchedalmond;
 }
