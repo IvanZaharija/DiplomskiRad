@@ -11,7 +11,7 @@ class Card extends Component {
         this.state = {
             cardCssClasses: null,
             cardHiddenClasses: [classes.CardBack, classes.InHand].join(' '),
-            cardValues: [1, 2, 3, 4],
+            cardValues: [0, 0, 0, 0],
             target: null
         };
     }
@@ -59,7 +59,7 @@ class Card extends Component {
                 onDragOver={(e) => this.dragOver(e)}
             >
                 <div className={classes.CardPicture}>
-                    <img src={require(`../../images/animals/${this.props.cardID}.jpg`)} />
+                    <img src={require(`../../images/animals/${this.props.cardID}.jpg`)} alt={Deck[this.props.cardID].name} />
                     <div className={classes.CardName}> {Deck[this.props.cardID].name} </div>
                 </div>
                 <div className={classes.ValuesContainer}>

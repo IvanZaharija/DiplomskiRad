@@ -18,10 +18,11 @@ class CardPlaceholder extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if ((prevState.cardOwner !== this.state.cardOwner) && !this.props.onBoard) {
-            this.props.cardPlaced(this.state.cardOwner, this.state.handPositionId, this.props.placeholderId, this.state.cardId);
-            this.handleCardPlacment(this.state.cardOwner);
-        }
+            if ((prevState.cardOwner !== this.state.cardOwner) && !this.props.onBoard) {
+                this.props.cardPlaced(this.state.cardOwner, this.state.handPositionId, this.props.placeholderId, this.state.cardId);
+                this.handleCardPlacment(this.state.cardOwner);
+            }
+
 
         if ((prevProps.onBoard !== this.props.onBoard) && (prevProps.onBoard !== false)) {
             this.handleCardPlacment(this.props.onBoard, false);
@@ -65,7 +66,7 @@ class CardPlaceholder extends Component {
                 onDrop={(e) => this.drop(e)}
             >
                 <div className={classes.CardPicture}>
-                    <img src={require(`../../images/animals/${this.state.cardId}.jpg`)} />
+                    <img src={require(`../../images/animals/${this.state.cardId}.jpg`)} alt={Deck[this.state.cardId].name} />
                     <div className={classes.CardName}> {Deck[this.state.cardId].name} </div>
                 </div>
                 <div className={classes.ValuesContainer}>

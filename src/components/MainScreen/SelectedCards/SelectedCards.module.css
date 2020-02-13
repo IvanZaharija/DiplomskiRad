@@ -1,5 +1,51 @@
+*{
+    margin: 0;
+}
+
 .SelectedCards {
     display: flex;
     flex-direction: row;
-    margin: 2vh;
+    align-items: center;
+    margin: 0 5px 0 0;
+}
+
+.SelectedOwner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: gainsboro;
+    transform: rotate(-90deg);
+    height: 4vh;
+    width: 15vh;
+    margin: -40px;
+    border-radius: 5px 5px 0 0;
+    font-size: 3.5vh;
+}
+
+.BlueOwner {
+    background-color: royalblue;
+    border-color: royalblue;
+}
+
+.BlueOwner > * {
+    border-color: royalblue;
+}
+
+
+.RedOwner {
+    background-color: crimson;
+    border-color: crimson;
+}
+
+.RedOwner > * {
+    border-color: crimson;
+}
+
+.SelectedPlaceholders {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 2vh;
+    border-style: solid;
+    border-width: 2px;
+    background-color: transparent ;
 }

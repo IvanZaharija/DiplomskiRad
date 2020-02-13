@@ -55,6 +55,8 @@ class GameBoard extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
+
+        if (this.state.triggeredPlaceholder)
         this.checkAdjacentPlaceholder(this.state.triggeredPlaceholder, this.props.gameResult);
 
         

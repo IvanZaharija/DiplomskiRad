@@ -181,7 +181,7 @@ img {
 
 .CardBack{
     display: flex;
-
+    position: absolute;
     border-style: solid;
     border-width: 6px;
     border-radius: 5px;

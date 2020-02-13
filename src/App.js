@@ -7,8 +7,8 @@ import MainScreen from './components/MainScreen/MainScreen'
 function App() {
   return (
     <div className="App">
-      {/* <GameField /> */}
       <MainScreen />
+      {/* <GameField /> */}
     </div>
   );
 }

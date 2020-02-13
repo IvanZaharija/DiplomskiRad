@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 
 import classes from './MainScreen.module.css';
-import Deck from '../CardCollection.json';
-import CardDisplay from './CardDisplay/CardDisplay';
+import CardCollectionDisplay from './CardCollectionDisplay/CardCollectionDisplay';
 import SelectedCards from './SelectedCards/SelectedCards';
+import GameField from '../GameField/GameField';
 
-class GameField extends Component {
+class MainScreen extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            cards: Deck,
-            deckSize: null,
-            show: false,
+            instructionTextLine_1: "Each player has to drag and drop cards to select them, or replace an already selected card. One player can't have duplicate cards.", 
+            instructionTextLine_2: "The values on the card represent the animals characteristic: speed, food (kg eatan per day), weight and life span, as shown by the icons." ,
+            instructionTextLine_3: "After all the cards have been selected press Play!" ,
             blueReady: false,
-            redReady: false
+            redReady: false,
+            blueCards: [null, null, null, null ,null],
+            redCards: [null, null, null, null ,null],
+            switchDisplay: true
         };
     }
 
     componentDidMount() {
-        this.setState({ deckSize: Object.keys(this.state.cards).length })
+        // this.setState({ deckSize: Object.keys(this.state.cards).length })
     }
 
     componentDidUpdate() {
@@ -37,64 +40,49 @@ class GameField extends Component {
     }
 
     sendAllCardIds = () => {
-        console.log("Ovjde idu idevi");
-        this.refs.SelectedBlue.fetchSelectedIds();
-        this.refs.SelectedRed.fetchSelectedIds();
+        if( this.state.blueReady && this.state.redReady) {
+            this.refs.SelectedBlue.fetchSelectedIds();
+            this.refs.SelectedRed.fetchSelectedIds();
+            this.setState({ switchDisplay: false})
+        }
     }
 
     returnBlueCardIds = (Ids) => {
-        console.log(Ids);
+        this.setState({ blueCards: Ids})
     }
     returnRedCardIds = (Ids) => {
-        console.log(Ids);
-    }
-
-    generateCard() {
-
-        let row = [];
-        for (let i = 1; i <= this.state.deckSize / 4; i++) {
-            let column = [];
-            for (let j = 0; j < 4; j++) {
-                let pomak = 4 * i - 3 + j;
-                if (pomak > this.state.deckSize) break;
-                column.push(
-                    <td key={pomak} className={classes.CardCase} >
-                        <label className={classes.CardName}> {Deck[pomak].name} </label>
-                        <CardDisplay id={pomak} cardPicture={Deck[pomak].picture} cardClass={Deck[pomak].class} cardValues={Deck[pomak].values} />
-                    </td>
-                )
-            }
-            row.push(<tr className={classes.Row} key={i}>{column}</tr>)
-        }
-        return row
+        this.setState({ redCards: Ids})
     }
 
     render() {
-        return (
-            <div className={classes.MainScreen}>
-                <div className={classes.Selection}>
-                    <div className={classes.Instructions}> Instruction</div>
-                    <div className={classes.PlayerCards}>
-                        <SelectedCards ref="SelectedBlue" owner={"Blue"} cardsFull={this.checkBlueSelection} getIds={this.returnBlueCardIds} />
-                        <SelectedCards ref="SelectedRed" owner={"Red"} cardsFull={this.checkRedSelection} getIds={this.returnRedCardIds} />
+
+        if (this.state.switchDisplay) {
+            return (
+                <div className={classes.MainScreen}>
+                    <div className={classes.Selection}>
+                        <div className={classes.Instructions}>
+                                <div className={classes.InstructionText}> {this.state.instructionTextLine_1} </div>
+                                <div className={classes.InstructionText}> {this.state.instructionTextLine_2} </div>
+                                <div className={classes.InstructionText}> {this.state.instructionTextLine_3} </div>
+                        </div>
+                        <div className={classes.PlayerCards}>
+                            <SelectedCards ref="SelectedBlue" owner={"Blue"} cardsFull={this.checkBlueSelection} getIds={this.returnBlueCardIds} />
+                            <SelectedCards ref="SelectedRed" owner={"Red"} cardsFull={this.checkRedSelection} getIds={this.returnRedCardIds} />
+                        </div>
+                        <div className={classes.ButtonContainer}>
+                            <button className={[classes.PlayButton, (this.state.blueReady && this.state.redReady) ? classes.BtnClickable : classes.BtnNotClickable ].join(' ')}
+                                    onClick={() => this.sendAllCardIds()}>
+                                        Play!
+                            </button>
+                        </div>
                     </div>
-                    <div className={classes.ButtonContainer}>
-                        <button style={{ backgroundColor: (this.state.blueReady && this.state.redReady) ? 'green' : 'red' }}
-                                onClick={() => this.sendAllCardIds()}>
-                            Play!
-                        </button>
-                    </div>
+                    <CardCollectionDisplay />
                 </div>
-                <table className={classes.CardCollection}>
-                    <tbody className={classes.DisplayCase}>
-                        {this.generateCard()}
-                    </tbody>
-                </table>
-            </div>
-
-
-        )
+            )
+        }else {
+            return <GameField blueCards={this.state.blueCards} redCards={this.state.redCards} />
+        }
     }
 }
 
-export default GameField
+export default MainScreen

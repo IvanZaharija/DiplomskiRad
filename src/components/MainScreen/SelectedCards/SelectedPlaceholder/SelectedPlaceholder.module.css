@@ -157,3 +157,60 @@ img {
 .CardPlaceholder > * {
     display: none
 }
+
+.CardPrototype {
+    height: 210px;
+    width:  160px;
+    border-style: solid;
+    border-width: 1px;
+    /* border-color:whitesmoke; */
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 40%;
+}
+
+.SpeedIcon {
+    display: flex;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 5vh;
+    width: 5vh;
+}
+
+.FoodIcon {
+    display: flex;
+    position: absolute;
+    right: 5px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 5vh;
+    width: 5vh;
+}
+
+.WeightIcon {
+    display: flex;
+    position: absolute;
+    bottom: 5px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 5vh;
+    width: 5vh;
+}
+
+.LifeIcon {
+    display: flex;
+    position: absolute;
+    left: 5px;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    height: 5vh;
+    width: 5vh;
+}

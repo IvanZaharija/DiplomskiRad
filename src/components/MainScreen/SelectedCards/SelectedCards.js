@@ -11,13 +11,13 @@ class SelectedCards extends Component {
         };
     }
 
-    componentDidUpdate () {
-        if (!this.state.selectedCards.includes(null)){
-                this.props.cardsFull(true)
+    componentDidUpdate() {
+        if (!this.state.selectedCards.includes(null)) {
+            this.props.cardsFull(true)
         }
     }
 
-    fetchSelectedIds () {
+    fetchSelectedIds() {
         this.props.getIds(this.state.selectedCards);
     }
 
@@ -25,7 +25,6 @@ class SelectedCards extends Component {
         let tempState = [...this.state.selectedCards];
 
         if (tempState.includes(cardId)) {
-            console.log("vec imaaa");
             return false
         }
         else {
@@ -38,11 +37,14 @@ class SelectedCards extends Component {
     render() {
         return (
             <div className={classes.SelectedCards}>
-                <SelectedPlaceholder id={0} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                <SelectedPlaceholder id={1} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                <SelectedPlaceholder id={2} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                <SelectedPlaceholder id={3} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                <SelectedPlaceholder id={4} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                <label className={[classes.SelectedOwner, (this.props.owner === "Blue") ? classes.BlueOwner : classes.RedOwner].join(' ')}>{this.props.owner}</label>
+                <div className={[classes.SelectedPlaceholders, (this.props.owner === "Blue") ? classes.BlueOwner : classes.RedOwner].join(' ')}>
+                    <SelectedPlaceholder id={0} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                    <SelectedPlaceholder id={1} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                    <SelectedPlaceholder id={2} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                    <SelectedPlaceholder id={3} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                    <SelectedPlaceholder id={4} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                </div>
             </div>
         )
     }

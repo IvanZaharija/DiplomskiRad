@@ -11,14 +11,19 @@ class GameField extends Component {
         super(props);
         this.state = {
             playerTurn: "Blue",
-            cardsRed: [4, 6, 24, 13, 15],
-            cardsBlue: [5, 15, 22, 30, 19],
+            cardsRed: null,
+            cardsBlue: null,
             blueScore: 0,
             redScore: 0,
             show : false,
             winner: "?",
             resultMessage: "?"
         };
+    }
+
+    componentDidMount() {
+        this.setState({ cardsBlue: this.props.blueCards, cardsRed: this.props.redCards})
+        console.log(this.props.blueCards, this.props.redCards);
     }
 
     getScoreHandler = (scoreBlue, scoreRed) => {
@@ -61,9 +66,9 @@ class GameField extends Component {
         return (
             <div className={classes.GameField}>
                 <ScoreBoard  show={this.state.show} blueScore={this.state.blueScore} redScore={this.state.redScore} winner={this.state.winner} resultMessage={this.state.resultMessage} />
-                <PlayerHand ref="Blue" owner={"Blue"} cardIDs={this.state.cardsBlue} playerTurn={(this.state.playerTurn === "Blue") ? true : false} />
+                <PlayerHand ref="Blue" owner={"Blue"} cardIDs={this.props.redCards} playerTurn={(this.state.playerTurn === "Blue") ? true : false} />
                 <GameBoard ref="Board" cardPlaced={this.handleCardPlaced} gameResult={this.getScoreHandler} />
-                <PlayerHand ref="Red" owner={"Red"} cardIDs={this.state.cardsRed} playerTurn={(this.state.playerTurn === "Red") ? true : false} />
+                <PlayerHand ref="Red" owner={"Red"} cardIDs={this.props.blueCards} playerTurn={(this.state.playerTurn === "Red") ? true : false} />
             </div>
         )
     }
