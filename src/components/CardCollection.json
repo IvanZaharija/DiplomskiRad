@@ -3,224 +3,192 @@
       "id": "1",
       "class" : "Apes",
       "name": "Lar Gibbon",
-      "values": [6, 1, 1, 4],
-      "picture": "../../../images/animals/1.jpg"
+      "values": [6, 1, 1, 4]
     },
     "2": {
       "id": "2",
       "class" : "Apes",
       "name": "Chimpanzee",
-      "values": [3, 2, 3, 6],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [3, 2, 3, 6]
     },
     "3": {
       "id": "3",
       "class" : "Apes",
       "name": "Orang-utan",
-      "values": [2, 3, 3, 5],
-      "picture": "../../../images/animals/3.jpg"
+      "values": [2, 3, 3, 5]
     },
     "4": {
       "id": "4",
       "class" : "Apes",
       "name": "Western Gorilla",
-      "values": [2, 3, 4, 6],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [2, 3, 4, 6]
     },
     "5": {
       "id": "5",
       "class" : "BaleenWhales",
       "name": "Blue Whale",
-      "values": [6, 10, 10, 8],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [6, 10, 10, 8]
     },
     "6": {
       "id": "6",
       "class" : "BaleenWhales",
       "name": "Bowhead Whale",
-      "values": [2, 8, 10, 10],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [2, 8, 10, 10]
     },
     "7": {
       "id": "7",
       "class" : "BaleenWhales",
       "name": " Gray Whale",
-      "values": [2, 8, 8, 7],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [2, 8, 8, 7]
     },
     "8": {
       "id": "8",
       "class" : "BaleenWhales",
       "name": "Minke Whale",
-      "values": [4, 7, 7, 6],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [4, 7, 7, 6]
     },
     "9": {
       "id": "9",
       "class" : "Even-toedUngulates",
       "name": "Moose",
-      "values": [7, 4, 5, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 4, 5, 2]
     },
     "10": {
       "id": "10",
       "class" : "Even-toedUngulates",
       "name": "Giraffe",
-      "values": [7, 4, 6, 3],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 4, 6, 3]
     },
     "11": {
       "id": "11",
       "class" : "Even-toedUngulates",
       "name": "Bongo",
-      "values": [4, 3, 5, 1],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [4, 3, 5, 1]
     },
     "12": {
       "id": "12",
       "class" : "Even-toedUngulates",
       "name": "Musk Ox",
-      "values": [5, 2, 5, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [5, 2, 5, 2]
     },
     "13": {
       "id": "13",
       "class" : "MarsupialsAndMonotremes",
       "name": "Red Kangoroo",
-      "values": [7, 2, 3, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 2, 3, 2]
     },
     "14": {
       "id": "14",
       "class" : "MarsupialsAndMonotremes",
       "name": "Koala",
-      "values": [7, 2, 2, 1],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 2, 2, 1]
     },
     "15": {
       "id": "15",
       "class" : "MarsupialsAndMonotremes",
       "name": "Duck-billed Platypus",
-      "values": [1, 1, 1, 1],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [1, 1, 1, 1]
     },
     "16": {
       "id": "16",
       "class" : "MarsupialsAndMonotremes",
       "name": "Short-nosed Echidna",
-      "values": [7, 1, 1, 5],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 1, 1, 5]
     },
     "17": {
       "id": "17",
       "class" : "Odd-toedUngulates",
       "name": "Burchell's Zebra",
-      "values": [7, 3, 5, 3],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 3, 5, 3]
     },
     "18": {
       "id": "18",
       "class" : "Odd-toedUngulates",
       "name": "Malayan Tapir",
-      "values": [2, 3, 5, 3],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [2, 3, 5, 3]
     },
     "19": {
       "id": "19",
       "class" : "Odd-toedUngulates",
       "name": "Indian Rhino",
-      "values": [5, 5, 6, 4],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [5, 5, 6, 4]
     },
     "20": {
       "id": "20",
       "class" : "Odd-toedUngulates",
       "name": "Sumatran Rhino",
-      "values": [4, 4, 5, 4],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [4, 4, 5, 4]
     },
     "21": {
       "id": "21",
       "class" : "ToothedWhales",
       "name": "Beluga Whale",
-      "values": [2, 4, 6, 3],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [2, 4, 6, 3]
     },
     "22": {
       "id": "22",
       "class" : "ToothedWhales",
       "name": "Killer Whale",
-      "values": [6, 6, 7, 8],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [6, 6, 7, 8]
     },
     "23": {
       "id": "23",
       "class" : "ToothedWhales",
       "name": "Sperm Whale",
-      "values": [5, 8, 8, 7],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [5, 8, 8, 7]
     },
     "24": {
       "id": "24",
       "class" : "ToothedWhales",
       "name": "Bottlenosed Dolphin",
-      "values": [4, 3, 5, 3],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [4, 3, 5, 3]
     },
     "25": {
       "id": "25",
       "class" : "Bears",
       "name": "Brown Bear",
-      "values": [5, 3, 5, 4],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [5, 3, 5, 4]
     },
     "26": {
       "id": "26",
       "class" : "Bears",
       "name": "Polar Bear",
-      "values": [6, 4, 5, 4],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [6, 4, 5, 4]
     },
     "27": {
       "id": "27",
       "class" : "Bears",
       "name": "Sloth Bear",
-      "values": [2, 2, 4, 4],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [2, 2, 4, 4]
     },
     "28": {
       "id": "28",
       "class" : "Bears",
       "name": "American black bear",
-      "values": [6, 2, 4, 3],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [6, 2, 4, 3]
     },
     "29": {
       "id": "29",
       "class" : "BigCats",
       "name": "Jaguar",
-      "values": [10, 2, 4, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [10, 2, 4, 2]
     },
     "30": {
       "id": "30",
       "class" : "BigCats",
       "name": "Lion",
-      "values": [7, 3, 4, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 3, 4, 2]
     },
     "31": {
       "id": "31",
       "class" : "BigCats",
       "name": "Leopard",
-      "values": [7, 2, 3, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [7, 2, 3, 2]
     },
     "32": {
       "id": "32",
       "class" : "BigCats",
       "name": "Tiger",
-      "values": [6, 4, 4, 2],
-      "picture": "../../../images/animals/2.jpg"
+      "values": [6, 4, 4, 2]
     }    
   }
