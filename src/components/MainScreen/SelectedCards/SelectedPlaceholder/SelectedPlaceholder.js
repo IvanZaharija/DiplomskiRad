@@ -15,40 +15,39 @@ class Selectedlaceholder extends Component {
             placeholderCssClasses: [classes.CardPlaceholder],
             cardId: 1,
             cardValues: [1, 1, 1, 1],
-            cardPlaced: false
+            isCardPlaced: false
         };
     }
 
     cardPlacedHander = (id) => {
         let onwerClasses = (this.props.owner === "Blue") ? classes.BlueControl : classes.RedControl;
         this.setState({
-            cardPlaced: true,
+            isCardPlaced: true,
             cardId: id,
             cardValues: Deck[id].values,
             placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses].join(' '),
         })
     }
 
-    drop = (e) => {
+    dropHandler = (e) => {
         e.preventDefault();
-        const recievedData = JSON.parse(e.dataTransfer.getData('selectedCardId'));
-
-        if (this.props.cardPlaced(recievedData, this.props.id)) {
-            this.cardPlacedHander(recievedData);
+        const recievedCardId = JSON.parse(e.dataTransfer.getData('selectedCardId'));
+        if (this.props.cardPlaced(recievedCardId, this.props.placeholderId)) {
+            this.cardPlacedHander(recievedCardId);
         }
     }
 
-    dragOver = (e) => {
+    dragOverHanlder = (e) => {
         e.preventDefault();
     }
 
     render() {
-        if (this.state.cardPlaced) {
+        if (this.state.isCardPlaced) {
             return (
                 <div className={this.state.placeholderCssClasses}
-                    id={this.state.id}
-                    onDragOver={(e) => this.dragOver(e)}
-                    onDrop={(e) => this.drop(e)}
+                    id={this.state.cardId}
+                    onDragOver={(e) => this.dragOverHanlder(e)}
+                    onDrop={(e) => this.dropHandler(e)}
                 >
                     <div className={classes.CardPicture}>
                         <img src={require(`../../../../images/animals/${this.state.cardId}.jpg`)} alt={Deck[this.state.cardId].name} />
@@ -69,8 +68,8 @@ class Selectedlaceholder extends Component {
         } else {
             return (
                 <div className={classes.CardPrototype}
-                    onDragOver={(e) => this.dragOver(e)}
-                    onDrop={(e) => this.drop(e)}>
+                    onDragOver={(e) => this.dragOverHanlder(e)}
+                    onDrop={(e) => this.dropHandler(e)}>
                     <img className={classes.SpeedIcon} src={speed} alt="speed" />
                     <img className={classes.FoodIcon} src={food} alt="food" />
                     <img className={classes.WeightIcon} src={weight} alt="wight" />

@@ -6,7 +6,7 @@
 .MainScreen {
     display: flex;
     flex-direction: row;
-    background-image: url(../../images/backgrounds/prism.png);
+    background-image: url(../../images/background/prism.png);
 }
 
 .Selection {

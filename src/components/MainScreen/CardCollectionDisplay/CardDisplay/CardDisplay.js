@@ -3,20 +3,20 @@ import classes from './CardDisplay.module.css';
 
 function CardDisplay(props) {
 
-    function onDragStart (e) {
+    function onDragStartHanlder(e) {
         e.dataTransfer.setData('selectedCardId', props.id)
     }
 
-    function dragOver (e) {
+    function dragOverHandler(e) {
         e.preventDefault();
     }
 
-    return <div className={[classes.CardFace, classes[props.cardClass] ].join(' ')}
-                draggable={true}
-                onDragStart={(e) => onDragStart(e)}
-                onDragOver={(e) => dragOver(e)}> 
+    return <div className={[classes.CardFace, classes[props.cardClass]].join(' ')}
+        draggable={true}
+        onDragStart={(e) => onDragStartHanlder(e)}
+        onDragOver={(e) => dragOverHandler(e)}>
         <div className={classes.CardPicture}>
-            <img src={require(`../../../../images/animals/${props.id}.jpg`)} alt={props.id + ". Animal"}/>
+            <img src={require(`../../../../images/animals/${props.id}.jpg`)} alt={props.id + ". Animal"} />
         </div>
         <div className={classes.ValuesContainer}>
             <div className={classes.TopAndBottom}>

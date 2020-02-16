@@ -18,12 +18,12 @@ class SelectedCards extends Component {
     }
 
     fetchSelectedIds() {
-        this.props.getIds(this.state.selectedCards);
+        this.props.getCardIds(this.state.selectedCards);
     }
 
-    cardSelectedHanlder = (cardId, placeholderId) => {
+    selectedCardHanlder = (cardId, placeholderId) => {
         let tempState = [...this.state.selectedCards];
-
+        console.log(placeholderId);
         if (tempState.includes(cardId)) {
             return false
         }
@@ -39,11 +39,11 @@ class SelectedCards extends Component {
             <div className={classes.SelectedCards}>
                 <label className={[classes.SelectedOwner, (this.props.owner === "Blue") ? classes.BlueOwner : classes.RedOwner].join(' ')}>{this.props.owner}</label>
                 <div className={[classes.SelectedPlaceholders, (this.props.owner === "Blue") ? classes.BlueOwner : classes.RedOwner].join(' ')}>
-                    <SelectedPlaceholder id={0} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                    <SelectedPlaceholder id={1} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                    <SelectedPlaceholder id={2} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                    <SelectedPlaceholder id={3} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
-                    <SelectedPlaceholder id={4} owner={this.props.owner} cardPlaced={this.cardSelectedHanlder} />
+                    <SelectedPlaceholder placeholderId={0} owner={this.props.owner} cardPlaced={this.selectedCardHanlder} />
+                    <SelectedPlaceholder placeholderId={1} owner={this.props.owner} cardPlaced={this.selectedCardHanlder} />
+                    <SelectedPlaceholder placeholderId={2} owner={this.props.owner} cardPlaced={this.selectedCardHanlder} />
+                    <SelectedPlaceholder placeholderId={3} owner={this.props.owner} cardPlaced={this.selectedCardHanlder} />
+                    <SelectedPlaceholder placeholderId={4} owner={this.props.owner} cardPlaced={this.selectedCardHanlder} />
                 </div>
             </div>
         )
