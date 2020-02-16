@@ -1,0 +1,12 @@
+.GameScreen {
+    display: flex;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    height: 100vh;
+    background-color: rgb(30, 18, 18);
+    background-image: url(../../images/board.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
