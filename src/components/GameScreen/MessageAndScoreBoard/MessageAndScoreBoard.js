@@ -1,59 +1,54 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 import classes from './MessageAndScoreBoard.module.css';
-import HowToTake from '../../../images/instructions/howToTake.png'
-import HowToPlace from '../../../images/instructions/howToPlace.png'
+import HowToTake from '../../../images/instructions/howToTake.png';
+import HowToPlace from '../../../images/instructions/howToPlace.png';
 
-class MessageAndScoreBoard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            howToPlaceText: "Drag and drop cards to place them on the board.",
-            howToTakeText: "Place a card with an adjacent value higher than the opponents to take over his card."
-        };
-    }
+const HowToPlaceGuide = "Drag and drop cards to place them on the board."
+const HowToTakeGuide = "Place a card with an adjacent value higher than the opponents to take over his card."
 
-    restartHandler () {
+function MessageAndScoreBoard (props) {
+
+    function restartHandler () {
         window.location.reload(false);
-    }
+    };
 
-    render() {
-        if (this.props.showIntro) {
+        if (props.showIntro) {
             return (
                 <div className={[classes.Screen, classes.Intro].join(' ')}>
                     <div className={classes.Title}> How to play </div>
                     <div className={classes.Instructions}>
                         <div className={classes.HowToPlace}>
-                            <p className={classes.Text} > {this.state.howToPlaceText} </p>
+                            <p className={classes.Text} > {HowToPlaceGuide} </p>
                             <img className={classes.ImagePlace} src={HowToPlace} alt="How to place cards" />
                         </div>
                         <div className={classes.HowToTake}>
-                            <p className={classes.Text}> {this.state.howToTakeText} </p>
+                            <p className={classes.Text}> {HowToTakeGuide} </p>
                             <img className={classes.ImageTake} src={HowToTake} alt="How to take cards" />
                         </div>
                     </div>
                     <button
                         className={[classes.Button, classes.Close].join(' ')}
-                        onClick={this.props.introController}>
+                        onClick={props.introController}>
                         Close
                     </button>
                 </div>
             )
-        } else if (this.props.showResult) {
+        } else if (props.showResult) {
             return (
                 <div className={[classes.Screen, classes.Result].join(' ')}
-                    style={{ transform: this.props.showResult ? 'translateY(0)' : 'translateY(-100vh)' }}
+                    style={{ transform: props.showResult ? 'translateY(0)' : 'translateY(-100vh)' }}
                 >
-                    <div className={classes.Title}>  {this.props.resultMessage}  </div>
-                    <div className={classes.Winner}> {this.props.winner} </div>
+                    <div className={classes.Title}>  {props.resultMessage}  </div>
+                    <div className={classes.Winner}> {props.winner} </div>
                     <div className={classes.ResultValues}>
-                        <div className={[classes.Score, classes.Blue].join(' ')}> {this.props.blueScore} </div>
+                        <div className={[classes.Score, classes.Blue].join(' ')}> {props.blueScore} </div>
                         <div className={classes.ScoreDash}> - </div>
-                        <div className={[classes.Score, classes.Red].join(' ')}> {this.props.redScore} </div>
+                        <div className={[classes.Score, classes.Red].join(' ')}> {props.redScore} </div>
                     </div>
                     <button
                         className={[classes.Button, classes.Restart].join(' ')}
-                        onClick={this.restartHandler}>
+                        onClick={restartHandler}>
                         Restart
                     </button>
                 </div>
@@ -61,6 +56,5 @@ class MessageAndScoreBoard extends Component {
         } else
             return null
     }
-}
 
 export default MessageAndScoreBoard
