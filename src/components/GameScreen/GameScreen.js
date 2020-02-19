@@ -38,8 +38,7 @@ class GameScreen extends Component {
             winner = "Blue"
         } else if (blueScore < redScore) {
             winner = "Red"
-        }
-        else {
+        } else {
             message = " "
             winner = "Draw!"
         }
@@ -52,8 +51,7 @@ class GameScreen extends Component {
             this.refs[cardOwner].triggerHandCardRemove(handPositionId);
             this.refs.Board.gameLogicHandler(placeholderId, cardOwner, cardId);
             this.changePlayerTurnHandler(cardOwner);
-        }
-        else {
+        } else {
             console.warn("Refs recivied and invalid string");
         }
     }
@@ -78,9 +76,20 @@ class GameScreen extends Component {
                     blueScore={this.state.blueScore} redScore={this.state.redScore}
                     winner={this.state.winner}
                     resultMessage={this.state.resultMessage} />
-                <PlayerHand ref="Blue" owner={"Blue"} cardIds={this.props.selectedBlueCards} playerTurn={(this.state.playerTurn === "Blue" && !this.state.showIntro) ? true : false} />
-                <GameBoard ref="Board" cardPlaced={this.cardPlacedHandler} gameResult={this.getScoreHandler} />
-                <PlayerHand ref="Red" owner={"Red"} cardIds={this.props.selectedRedCards} playerTurn={(this.state.playerTurn === "Red" && !this.state.showIntro) ? true : false} />
+                <PlayerHand 
+                    ref="Blue" owner={"Blue"} 
+                    cardIds={this.props.selectedBlueCards} 
+                    playerTurn={(this.state.playerTurn === "Blue" && !this.state.showIntro) ?
+                     true : false} />
+                <GameBoard 
+                    ref="Board" 
+                    cardPlaced={this.cardPlacedHandler} 
+                    gameResult={this.getScoreHandler} />
+                <PlayerHand 
+                    ref="Red" owner={"Red"} 
+                    cardIds={this.props.selectedRedCards} 
+                    playerTurn={(this.state.playerTurn === "Red" && !this.state.showIntro) ?
+                     true : false} />
             </div>
         )
     }

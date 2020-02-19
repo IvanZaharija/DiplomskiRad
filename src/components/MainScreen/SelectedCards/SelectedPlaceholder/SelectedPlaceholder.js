@@ -50,7 +50,9 @@ class Selectedlaceholder extends Component {
                     onDrop={(e) => this.dropHandler(e)}
                 >
                     <div className={classes.CardPicture}>
-                        <img src={require(`../../../../images/animals/${this.state.cardId}.jpg`)} alt={Deck[this.state.cardId].name} />
+                        <img 
+                            src={require(`../../../../images/animals/${this.state.cardId}.jpg`)} 
+                            alt={Deck[this.state.cardId].name} />
                         <div className={classes.CardName}> {Deck[this.state.cardId].name} </div>
                     </div>
                     <div className={classes.ValuesContainer}>

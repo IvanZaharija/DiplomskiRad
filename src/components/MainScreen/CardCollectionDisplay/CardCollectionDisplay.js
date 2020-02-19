@@ -4,16 +4,16 @@ import CardDisplay from './CardDisplay/CardDisplay';
 import Deck from '../../CardCollection.json';
 
 const DECKSIZE = Object.keys(Deck).length;
-const ROWSIZE = 4;
+const COLUMNS = 4;
 
 function CardCollectionDisplay() {
 
     function generateCards() {
 
         let rows = [];
-        for (let i = 1; i <= DECKSIZE / ROWSIZE; i++) {
+        for (let i = 1; i <= DECKSIZE / COLUMNS; i++) {
             let columns = [];
-            for (let j = 0; j < ROWSIZE; j++) {
+            for (let j = 0; j < COLUMNS; j++) {
                 let offset = 4 * i - 3 + j;
                 if (offset > DECKSIZE) break;
                 columns.push(
@@ -21,7 +21,6 @@ function CardCollectionDisplay() {
                         <label className={classes.CardName}> {Deck[offset].name} </label>
                         <CardDisplay
                             id={offset}
-                            cardPicture={Deck[offset].picture}
                             cardClass={Deck[offset].class}
                             cardValues={Deck[offset].values} />
                     </td>

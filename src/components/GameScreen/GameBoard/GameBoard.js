@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import classes from './GameBoard.module.css';
-import PlaceHolder from './CardPlaceholder/CardPlaceholder';
+import CardPlaceholder from './CardPlaceholder/CardPlaceholder';
 import Deck from '../../CardCollection.json';
 import Board from './BoardPosition.json'
 
@@ -13,7 +13,7 @@ class GameBoard extends Component {
             redScore: 5,
             blueScore: 5,
             cardsPlaced: 0,
-            GameBoardFull: false,
+            gameBoardFull: false,
             boardState: {
                 "1": {
                     "owner": false,
@@ -59,19 +59,10 @@ class GameBoard extends Component {
         if (this.state.triggeredPlaceholder)
             this.checkAdjacentPlaceholder(this.state.triggeredPlaceholder, this.props.gameResult);
 
-        if (this.state.GameBoardFull) {
-            this.setState({ GameBoardFull: false })
+        if (this.state.gameBoardFull) {
+            this.setState({ gameBoardFull: false })
             this.props.gameResult(this.state.blueScore, this.state.redScore)
         }
-    }
-
-    updateScoreHandler(owner, scoreValue) {
-        if (owner === "Blue") {
-            this.setState({ blueScore: this.state.blueScore + scoreValue, redScore: this.state.redScore - scoreValue })
-        } else if (owner === "Red") {
-            this.setState({ blueScore: this.state.blueScore - scoreValue, redScore: this.state.redScore + scoreValue })
-        } else
-            return console.error("ScoreUpdateError");
     }
 
     gameLogicHandler(placeholderId, cardOwner, cardId) {
@@ -105,8 +96,17 @@ class GameBoard extends Component {
         }
 
         if (this.state.cardsPlaced === 9) {
-            this.setState({ GameBoardFull: true, cardsPlaced: false })
+            this.setState({ gameBoardFull: true, cardsPlaced: false })
         }
+    }
+
+    updateScoreHandler(owner, scoreValue) {
+        if (owner === "Blue") {
+            this.setState({ blueScore: this.state.blueScore + scoreValue, redScore: this.state.redScore - scoreValue })
+        } else if (owner === "Red") {
+            this.setState({ blueScore: this.state.blueScore - scoreValue, redScore: this.state.redScore + scoreValue })
+        } else
+            return console.error("ScoreUpdateError");
     }
 
     changeOwnerHandler = (newOwner, placeholderId) => {
@@ -125,19 +125,19 @@ class GameBoard extends Component {
                     <div className={[classes.Score, classes.ScoreRed].join(' ')}>{this.state.redScore}</div>
                 </div>
                 <div className={classes.Row}>
-                    <PlaceHolder placeholderId={1} onBoard={this.state.boardState[1].owner} cardPlaced={this.props.cardPlaced} />
-                    <PlaceHolder placeholderId={2} onBoard={this.state.boardState[2].owner} cardPlaced={this.props.cardPlaced} />
-                    <PlaceHolder placeholderId={3} onBoard={this.state.boardState[3].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={1} hasOwner={this.state.boardState[1].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={2} hasOwner={this.state.boardState[2].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={3} hasOwner={this.state.boardState[3].owner} cardPlaced={this.props.cardPlaced} />
                 </div>
                 <div className={classes.Row}>
-                    <PlaceHolder placeholderId={4} onBoard={this.state.boardState[4].owner} cardPlaced={this.props.cardPlaced} />
-                    <PlaceHolder placeholderId={5} onBoard={this.state.boardState[5].owner} cardPlaced={this.props.cardPlaced} />
-                    <PlaceHolder placeholderId={6} onBoard={this.state.boardState[6].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={4} hasOwner={this.state.boardState[4].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={5} hasOwner={this.state.boardState[5].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={6} hasOwner={this.state.boardState[6].owner} cardPlaced={this.props.cardPlaced} />
                 </div>
                 <div className={classes.Row}>
-                    <PlaceHolder placeholderId={7} onBoard={this.state.boardState[7].owner} cardPlaced={this.props.cardPlaced} />
-                    <PlaceHolder placeholderId={8} onBoard={this.state.boardState[8].owner} cardPlaced={this.props.cardPlaced} />
-                    <PlaceHolder placeholderId={9} onBoard={this.state.boardState[9].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={7} hasOwner={this.state.boardState[7].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={8} hasOwner={this.state.boardState[8].owner} cardPlaced={this.props.cardPlaced} />
+                    <CardPlaceholder placeholderId={9} hasOwner={this.state.boardState[9].owner} cardPlaced={this.props.cardPlaced} />
                 </div>
             </div>
 

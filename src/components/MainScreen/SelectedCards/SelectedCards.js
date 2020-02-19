@@ -23,7 +23,6 @@ class SelectedCards extends Component {
 
     selectedCardHanlder = (cardId, placeholderId) => {
         let tempState = [...this.state.selectedCards];
-        console.log(placeholderId);
         if (tempState.includes(cardId)) {
             return false
         }

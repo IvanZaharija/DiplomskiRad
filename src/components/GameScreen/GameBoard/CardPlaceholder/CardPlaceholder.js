@@ -15,31 +15,33 @@ class CardPlaceholder extends Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        if ((prevState.cardOwner !== this.state.cardOwner) && !this.props.onBoard) {
+        if (prevState.cardOwner !== this.state.cardOwner) {
             this.props.cardPlaced(this.state.cardOwner, this.state.handPositionId, this.props.placeholderId, this.state.cardId);
-            this.handleCardPlacment(this.state.cardOwner);
+            this.cardPlacedHander(this.state.cardOwner);
+            console.log("Prvi");
         }
 
-        if ((prevProps.onBoard !== this.props.onBoard) && (prevProps.onBoard !== false)) {
-            this.handleCardPlacment(this.props.onBoard, false);
+        if ((prevProps.hasOwner !== this.props.hasOwner) && prevProps.hasOwner) {
+            this.cardPlacedHander(this.props.hasOwner, true);
+            console.log("Drugi");
         }
     }
 
-    handleCardPlacment = (owner, changedOwner) => {
+    cardPlacedHander = (owner, changedOwner) => {
         let onwerClasses = (owner === "Blue") ? classes.BlueControl : classes.RedControl;
-        let animationClass = (changedOwner === false) ? classes.Animate : classes.Nesto;
+        let animationClass = (changedOwner) ? classes.Animate : classes.NoAnimation;
         this.setState({
-            placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses, animationClass].join(' ')
+            placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses].join(' ')
         },
             () => {
-                setTimeout(() => {
-                    this.setState({ placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses].join(' ') })
-                }, 500);
+                if (changedOwner){
+                    this.setState({ placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses, animationClass].join(' ') });
+                }
             })
     }
 
     dropHanlder = (e) => {
-        if (!this.props.onBoard) {
+        if (!this.props.hasOwner) {
             e.preventDefault();
             const recievedData = JSON.parse(e.dataTransfer.getData('sendCardInfo'));
             this.transfromValuesHandler(recievedData);
