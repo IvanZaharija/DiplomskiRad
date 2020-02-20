@@ -59,7 +59,6 @@ class Card extends Component {
     }
 
     render() {
-
         return (
             <div className={(this.props.draggable) ? this.state.cardCssClasses : this.state.cardHiddenClasses}
                 id={this.props.id}
@@ -68,7 +67,9 @@ class Card extends Component {
                 onDragOver={(e) => this.dragOverHandler(e)}
             >
                 <div className={classes.CardPicture}>
-                    <img src={require(`../../../../images/animals/${this.props.cardId}.jpg`)} alt={Deck[this.props.cardId].name} />
+                    <img 
+                        src={require(`../../../../images/animals/${this.props.cardId}.jpg`)} 
+                        alt={Deck[this.props.cardId].name} />
                     <div className={classes.CardName}> {Deck[this.props.cardId].name} </div>
                 </div>
                 <div className={classes.ValuesContainer}>

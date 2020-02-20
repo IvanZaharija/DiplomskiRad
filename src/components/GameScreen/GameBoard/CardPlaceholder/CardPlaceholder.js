@@ -33,9 +33,13 @@ class CardPlaceholder extends Component {
         this.setState({
             placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses].join(' ')
         },
-            () => {
-                if (changedOwner){
-                    this.setState({ placeholderCssClasses: [classes.placeholderCssClasses, classes.CardFace, onwerClasses, animationClass].join(' ') });
+            () => {   
+                if (changedOwner) {
+                    setTimeout(() => {
+                        this.setState({ placeholderCssClasses:
+                            [classes.placeholderCssClasses,
+                                classes.CardFace, onwerClasses, animationClass].join(' ') })
+                    }, 0);
                 }
             })
     }
